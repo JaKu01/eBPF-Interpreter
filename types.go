@@ -1,9 +1,5 @@
 package main
 
-type VirtualBit uint8
-
-type VirtualByte [8]VirtualBit
-
 type Register [64]VirtualBit
 
 type ApplicationState struct {
