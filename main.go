@@ -1,12 +1,20 @@
 package main
 
 import (
+	"eBPF-Interpreter/cli"
+	"flag"
 	"fmt"
 	"log"
 )
 
 func main() {
-	sectionContent, err := LoadInstructionsFromFile("./analysis/hello.bpf.o", "tc/egress")
+	args, err := cli.SetupCli()
+	if err != nil {
+		flag.Usage()
+		return
+	}
+
+	sectionContent, err := LoadInstructionsFromFile(args.Filename, args.SectionName)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -20,6 +28,5 @@ func main() {
 		}
 		instructions = append(instructions, result)
 	}
-
 	fmt.Println(instructions)
 }
