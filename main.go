@@ -1,13 +1,25 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 func main() {
+	sectionContent, err := LoadInstructionsFromFile("./analysis/hello.bpf.o", "tc/egress")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
-	bytes := []byte{0b10010110}
+	var instructions []Instruction
+	for i := 0; i < len(sectionContent); i += InstructionLength {
+		result, err := ParseInstruction(sectionContent[i : i+InstructionLength])
+		if err != nil {
+			log.Fatalf("Could not decode instruction: %v", err)
+		}
+		instructions = append(instructions, result)
+	}
 
-	virtualByte := ExtractBits(bytes[0])
-
-	fmt.Println(virtualByte.String())
-
+	fmt.Println(instructions)
 }
