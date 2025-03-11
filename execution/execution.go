@@ -219,63 +219,63 @@ func handle32bitArithmeticOperations(instruction types.Instruction) {
 	switch instruction.Opcode {
 	// 32 immediate as source operand
 	case constants.BPF_ALU | constants.BPF_K | constants.BPF_ADD:
-		fmt.Println("constants.BPF_ALU | constants.BPF_K | constants.BPF_ADD")
+		fmt.Println("BPF_ALU | BPF_K | BPF_ADD")
 	case constants.BPF_ALU | constants.BPF_K | constants.BPF_SUB:
-		fmt.Println("constants.BPF_ALU | constants.BPF_K | constants.BPF_SUB")
+		fmt.Println("BPF_ALU | BPF_K | BPF_SUB")
 	case constants.BPF_ALU | constants.BPF_K | constants.BPF_MUL:
-		fmt.Println("constants.BPF_ALU | constants.BPF_K | constants.BPF_MUL")
+		fmt.Println("BPF_ALU | BPF_K | BPF_MUL")
 	case constants.BPF_ALU | constants.BPF_K | constants.BPF_DIV:
-		fmt.Println("constants.BPF_ALU | constants.BPF_K | constants.BPF_DIV")
+		fmt.Println("BPF_ALU | BPF_K | BPF_DIV")
 	case constants.BPF_ALU | constants.BPF_K | constants.BPF_OR:
-		fmt.Println("constants.BPF_ALU | constants.BPF_K | constants.BPF_OR")
+		fmt.Println("BPF_ALU | BPF_K | BPF_OR")
 	case constants.BPF_ALU | constants.BPF_K | constants.BPF_AND:
-		fmt.Println("constants.BPF_ALU | constants.BPF_K | constants.BPF_AND")
+		fmt.Println("BPF_ALU | BPF_K | BPF_AND")
 	case constants.BPF_ALU | constants.BPF_K | constants.BPF_LSH:
-		fmt.Println("constants.BPF_ALU | constants.BPF_K | constants.BPF_LSH")
+		fmt.Println("BPF_ALU | BPF_K | BPF_LSH")
 	case constants.BPF_ALU | constants.BPF_K | constants.BPF_RSH:
-		fmt.Println("constants.BPF_ALU | constants.BPF_K | constants.BPF_RSH")
+		fmt.Println("BPF_ALU | BPF_K | BPF_RSH")
 	case constants.BPF_ALU | constants.BPF_K | constants.BPF_NEG:
-		fmt.Println("constants.BPF_ALU | constants.BPF_K | constants.BPF_NEG")
+		fmt.Println("BPF_ALU | BPF_K | BPF_NEG")
 	case constants.BPF_ALU | constants.BPF_K | constants.BPF_MOD:
-		fmt.Println("constants.BPF_ALU | constants.BPF_K | constants.BPF_MOD")
+		fmt.Println("BPF_ALU | BPF_K | BPF_MOD")
 	case constants.BPF_ALU | constants.BPF_K | constants.BPF_XOR:
-		fmt.Println("constants.BPF_ALU | constants.BPF_K | constants.BPF_XOR")
+		fmt.Println("BPF_ALU | BPF_K | BPF_XOR")
 	case constants.BPF_ALU | constants.BPF_K | constants.BPF_MOV:
-		fmt.Println("constants.BPF_ALU | constants.BPF_K | constants.BPF_MOV")
+		fmt.Println("BPF_ALU | BPF_K | BPF_MOV")
 	case constants.BPF_ALU | constants.BPF_K | constants.BPF_ARSH:
-		fmt.Println("constants.BPF_ALU | constants.BPF_K | constants.BPF_ARSH")
+		fmt.Println("BPF_ALU | BPF_K | BPF_ARSH")
 	case constants.BPF_ALU | constants.BPF_K | constants.BPF_END:
-		fmt.Println("constants.BPF_ALU | constants.BPF_K | constants.BPF_END")
+		fmt.Println("BPF_ALU | BPF_K | BPF_END")
 
 	// register as source operand
 	case constants.BPF_ALU | constants.BPF_X | constants.BPF_ADD:
-		fmt.Println("constants.BPF_ALU | constants.BPF_X | constants.BPF_ADD")
+		fmt.Println("BPF_ALU | BPF_X | BPF_ADD")
 	case constants.BPF_ALU | constants.BPF_X | constants.BPF_SUB:
-		fmt.Println("constants.BPF_ALU | constants.BPF_X | constants.BPF_SUB")
+		fmt.Println("BPF_ALU | BPF_X | BPF_SUB")
 	case constants.BPF_ALU | constants.BPF_X | constants.BPF_MUL:
-		fmt.Println("constants.BPF_ALU | constants.BPF_X | constants.BPF_MUL")
+		fmt.Println("BPF_ALU | BPF_X | BPF_MUL")
 	case constants.BPF_ALU | constants.BPF_X | constants.BPF_DIV:
-		fmt.Println("constants.BPF_ALU | constants.BPF_X | constants.BPF_DIV")
+		fmt.Println("BPF_ALU | BPF_X | BPF_DIV")
 	case constants.BPF_ALU | constants.BPF_X | constants.BPF_OR:
-		fmt.Println("constants.BPF_ALU | constants.BPF_X | constants.BPF_OR")
+		fmt.Println("BPF_ALU | BPF_X | BPF_OR")
 	case constants.BPF_ALU | constants.BPF_X | constants.BPF_AND:
-		fmt.Println("constants.BPF_ALU | constants.BPF_X | constants.BPF_AND")
+		fmt.Println("BPF_ALU | BPF_X | BPF_AND")
 	case constants.BPF_ALU | constants.BPF_X | constants.BPF_LSH:
-		fmt.Println("constants.BPF_ALU | constants.BPF_X | constants.BPF_LSH")
+		fmt.Println("BPF_ALU | BPF_X | BPF_LSH")
 	case constants.BPF_ALU | constants.BPF_X | constants.BPF_RSH:
-		fmt.Println("constants.BPF_ALU | constants.BPF_X | constants.BPF_RSH")
+		fmt.Println("BPF_ALU | BPF_X | BPF_RSH")
 	case constants.BPF_ALU | constants.BPF_X | constants.BPF_NEG:
-		fmt.Println("constants.BPF_ALU | constants.BPF_X | constants.BPF_NEG")
+		fmt.Println("BPF_ALU | BPF_X | BPF_NEG")
 	case constants.BPF_ALU | constants.BPF_X | constants.BPF_MOD:
-		fmt.Println("constants.BPF_ALU | constants.BPF_X | constants.BPF_MOD")
+		fmt.Println("BPF_ALU | BPF_X | BPF_MOD")
 	case constants.BPF_ALU | constants.BPF_X | constants.BPF_XOR:
-		fmt.Println("constants.BPF_ALU | constants.BPF_X | constants.BPF_XOR")
+		fmt.Println("BPF_ALU | BPF_X | BPF_XOR")
 	case constants.BPF_ALU | constants.BPF_X | constants.BPF_MOV:
-		fmt.Println("constants.BPF_ALU | constants.BPF_X | constants.BPF_MOV")
+		fmt.Println("BPF_ALU | BPF_X | BPF_MOV")
 	case constants.BPF_ALU | constants.BPF_X | constants.BPF_ARSH:
-		fmt.Println("constants.BPF_ALU | constants.BPF_X | constants.BPF_ARSH")
+		fmt.Println("BPF_ALU | BPF_X | BPF_ARSH")
 	case constants.BPF_ALU | constants.BPF_X | constants.BPF_END:
-		fmt.Println("constants.BPF_ALU | constants.BPF_X | constants.BPF_END")
+		fmt.Println("BPF_ALU | BPF_X | BPF_END")
 	}
 
 }
@@ -284,63 +284,63 @@ func handle64bitArithmeticOperations(instruction types.Instruction) {
 	switch instruction.Opcode {
 	// 32 immediate as source operand
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_ADD:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_K | constants.BPF_ADD")
+		fmt.Println("BPF_ALU64 | BPF_K | BPF_ADD")
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_SUB:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_K | constants.BPF_SUB")
+		fmt.Println("BPF_ALU64 | BPF_K | BPF_SUB")
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_MUL:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_K | constants.BPF_MUL")
+		fmt.Println("BPF_ALU64 | BPF_K | BPF_MUL")
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_DIV:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_K | constants.BPF_DIV")
+		fmt.Println("BPF_ALU64 | BPF_K | BPF_DIV")
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_OR:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_K | constants.BPF_OR")
+		fmt.Println("BPF_ALU64 | BPF_K | BPF_OR")
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_AND:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_K | constants.BPF_AND")
+		fmt.Println("BPF_ALU64 | BPF_K | BPF_AND")
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_LSH:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_K | constants.BPF_LSH")
+		fmt.Println("BPF_ALU64 | BPF_K | BPF_LSH")
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_RSH:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_K | constants.BPF_RSH")
+		fmt.Println("BPF_ALU64 | BPF_K | BPF_RSH")
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_NEG:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_K | constants.BPF_NEG")
+		fmt.Println("BPF_ALU64 | BPF_K | BPF_NEG")
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_MOD:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_K | constants.BPF_MOD")
+		fmt.Println("BPF_ALU64 | BPF_K | BPF_MOD")
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_XOR:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_K | constants.BPF_XOR")
+		fmt.Println("BPF_ALU64 | BPF_K | BPF_XOR")
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_MOV:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_K | constants.BPF_MOV")
+		fmt.Println("BPF_ALU64 | BPF_K | BPF_MOV")
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_ARSH:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_K | constants.BPF_ARSH")
+		fmt.Println("BPF_ALU64 | BPF_K | BPF_ARSH")
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_END:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_K | constants.BPF_END")
+		fmt.Println("BPF_ALU64 | BPF_K | BPF_END")
 
 	// register as source operand
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_ADD:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_X | constants.BPF_ADD")
+		fmt.Println("BPF_ALU64 | BPF_X | BPF_ADD")
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_SUB:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_X | constants.BPF_SUB")
+		fmt.Println("BPF_ALU64 | BPF_X | BPF_SUB")
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_MUL:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_X | constants.BPF_MUL")
+		fmt.Println("BPF_ALU64 | BPF_X | BPF_MUL")
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_DIV:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_X | constants.BPF_DIV")
+		fmt.Println("BPF_ALU64 | BPF_X | BPF_DIV")
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_OR:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_X | constants.BPF_OR")
+		fmt.Println("BPF_ALU64 | BPF_X | BPF_OR")
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_AND:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_X | constants.BPF_AND")
+		fmt.Println("BPF_ALU64 | BPF_X | BPF_AND")
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_LSH:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_X | constants.BPF_LSH")
+		fmt.Println("BPF_ALU64 | BPF_X | BPF_LSH")
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_RSH:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_X | constants.BPF_RSH")
+		fmt.Println("BPF_ALU64 | BPF_X | BPF_RSH")
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_NEG:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_X | constants.BPF_NEG")
+		fmt.Println("BPF_ALU64 | BPF_X | BPF_NEG")
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_MOD:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_X | constants.BPF_MOD")
+		fmt.Println("BPF_ALU64 | BPF_X | BPF_MOD")
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_XOR:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_X | constants.BPF_XOR")
+		fmt.Println("BPF_ALU64 | BPF_X | BPF_XOR")
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_MOV:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_X | constants.BPF_MOV")
+		fmt.Println("BPF_ALU64 | BPF_X | BPF_MOV")
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_ARSH:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_X | constants.BPF_ARSH")
+		fmt.Println("BPF_ALU64 | BPF_X | BPF_ARSH")
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_END:
-		fmt.Println("constants.BPF_ALU64 | constants.BPF_X | constants.BPF_END")
+		fmt.Println("BPF_ALU64 | BPF_X | BPF_END")
 	}
 }
 
@@ -348,89 +348,63 @@ func handle64bitJumpInstructions(instruction types.Instruction) {
 	switch instruction.Opcode {
 	// 32 bit immediate as source operand
 	case constants.BPF_JMP | constants.BPF_K | constants.BPF_JA:
-		fmt.Println("constants.BPF_JMP | constants.BPF_K | constants.BPF_JA")
-
+		fmt.Println("BPF_JMP | BPF_K | BPF_JA")
 	case constants.BPF_JMP | constants.BPF_K | constants.BPF_JEQ:
-		fmt.Println("constants.BPF_JMP | constants.BPF_K | constants.BPF_JEQ")
-
+		fmt.Println("BPF_JMP | BPF_K | BPF_JEQ")
 	case constants.BPF_JMP | constants.BPF_K | constants.BPF_JGT:
-		fmt.Println("constants.BPF_JMP | constants.BPF_K | constants.BPF_JGT")
-
+		fmt.Println("BPF_JMP | BPF_K | BPF_JGT")
 	case constants.BPF_JMP | constants.BPF_K | constants.BPF_JGE:
-		fmt.Println("constants.BPF_JMP | constants.BPF_K | constants.BPF_JGE")
-
+		fmt.Println("BPF_JMP | BPF_K | BPF_JGE")
 	case constants.BPF_JMP | constants.BPF_K | constants.BPF_JSET:
-		fmt.Println("constants.BPF_JMP | constants.BPF_K | constants.BPF_JSET")
-
+		fmt.Println("BPF_JMP | BPF_K | BPF_JSET")
 	case constants.BPF_JMP | constants.BPF_K | constants.BPF_JNE:
-		fmt.Println("constants.BPF_JMP | constants.BPF_K | constants.BPF_JNE")
-
+		fmt.Println("BPF_JMP | BPF_K | BPF_JNE")
 	case constants.BPF_JMP | constants.BPF_K | constants.BPF_JSGT:
-		fmt.Println("constants.BPF_JMP | constants.BPF_K | constants.BPF_JSGT")
-
+		fmt.Println("BPF_JMP | BPF_K | BPF_JSGT")
 	case constants.BPF_JMP | constants.BPF_K | constants.BPF_JSGE:
-		fmt.Println("constants.BPF_JMP | constants.BPF_K | constants.BPF_JSGE")
-
+		fmt.Println("BPF_JMP | BPF_K | BPF_JSGE")
 	case constants.BPF_JMP | constants.BPF_K | constants.BPF_CALL:
-		fmt.Println("constants.BPF_JMP | constants.BPF_K | constants.BPF_CALL")
-
+		fmt.Println("BPF_JMP | BPF_K | BPF_CALL")
 	case constants.BPF_JMP | constants.BPF_K | constants.BPF_EXIT:
-		fmt.Println("constants.BPF_JMP | constants.BPF_K | constants.BPF_EXIT")
-
+		fmt.Println("BPF_JMP | BPF_K | BPF_EXIT")
 	case constants.BPF_JMP | constants.BPF_K | constants.BPF_JLT:
-		fmt.Println("constants.BPF_JMP | constants.BPF_K | constants.BPF_JLT")
-
+		fmt.Println("BPF_JMP | BPF_K | BPF_JLT")
 	case constants.BPF_JMP | constants.BPF_K | constants.BPF_JLE:
-		fmt.Println("constants.BPF_JMP | constants.BPF_K | constants.BPF_JLE")
-
+		fmt.Println("BPF_JMP | BPF_K | BPF_JLE")
 	case constants.BPF_JMP | constants.BPF_K | constants.BPF_JSLT:
-		fmt.Println("constants.BPF_JMP | constants.BPF_K | constants.BPF_JSLT")
-
+		fmt.Println("BPF_JMP | BPF_K | BPF_JSLT")
 	case constants.BPF_JMP | constants.BPF_K | constants.BPF_JSLE:
-		fmt.Println("constants.BPF_JMP | constants.BPF_K | constants.BPF_JSLE")
+		fmt.Println("BPF_JMP | BPF_K | BPF_JSLE")
 
 	// register as source operand
 	case constants.BPF_JMP | constants.BPF_X | constants.BPF_JA:
-		fmt.Println("constants.BPF_JMP | constants.BPF_X | constants.BPF_JA")
-
+		fmt.Println("BPF_JMP | BPF_X | BPF_JA")
 	case constants.BPF_JMP | constants.BPF_X | constants.BPF_JEQ:
-		fmt.Println("constants.BPF_JMP | constants.BPF_X | constants.BPF_JEQ")
-
+		fmt.Println("BPF_JMP | BPF_X | BPF_JEQ")
 	case constants.BPF_JMP | constants.BPF_X | constants.BPF_JGT:
-		fmt.Println("constants.BPF_JMP | constants.BPF_X | constants.BPF_JGT")
-
+		fmt.Println("BPF_JMP | BPF_X | BPF_JGT")
 	case constants.BPF_JMP | constants.BPF_X | constants.BPF_JGE:
-		fmt.Println("constants.BPF_JMP | constants.BPF_X | constants.BPF_JGE")
-
+		fmt.Println("BPF_JMP | BPF_X | BPF_JGE")
 	case constants.BPF_JMP | constants.BPF_X | constants.BPF_JSET:
-		fmt.Println("constants.BPF_JMP | constants.BPF_X | constants.BPF_JSET")
-
+		fmt.Println("BPF_JMP | BPF_X | BPF_JSET")
 	case constants.BPF_JMP | constants.BPF_X | constants.BPF_JNE:
-		fmt.Println("constants.BPF_JMP | constants.BPF_X | constants.BPF_JNE")
-
+		fmt.Println("BPF_JMP | BPF_X | BPF_JNE")
 	case constants.BPF_JMP | constants.BPF_X | constants.BPF_JSGT:
-		fmt.Println("constants.BPF_JMP | constants.BPF_X | constants.BPF_JSGT")
-
+		fmt.Println("BPF_JMP | BPF_X | BPF_JSGT")
 	case constants.BPF_JMP | constants.BPF_X | constants.BPF_JSGE:
-		fmt.Println("constants.BPF_JMP | constants.BPF_X | constants.BPF_JSGE")
-
+		fmt.Println("BPF_JMP | BPF_X | BPF_JSGE")
 	case constants.BPF_JMP | constants.BPF_X | constants.BPF_CALL:
-		fmt.Println("constants.BPF_JMP | constants.BPF_X | constants.BPF_CALL")
-
+		fmt.Println("BPF_JMP | BPF_X | BPF_CALL")
 	case constants.BPF_JMP | constants.BPF_X | constants.BPF_EXIT:
-		fmt.Println("constants.BPF_JMP | constants.BPF_X | constants.BPF_EXIT")
-
+		fmt.Println("BPF_JMP | BPF_X | BPF_EXIT")
 	case constants.BPF_JMP | constants.BPF_X | constants.BPF_JLT:
-		fmt.Println("constants.BPF_JMP | constants.BPF_X | constants.BPF_JLT")
-
+		fmt.Println("BPF_JMP | BPF_X | BPF_JLT")
 	case constants.BPF_JMP | constants.BPF_X | constants.BPF_JLE:
-		fmt.Println("constants.BPF_JMP | constants.BPF_X | constants.BPF_JLE")
-
+		fmt.Println("BPF_JMP | BPF_X | BPF_JLE")
 	case constants.BPF_JMP | constants.BPF_X | constants.BPF_JSLT:
-		fmt.Println("constants.BPF_JMP | constants.BPF_X | constants.BPF_JSLT")
-
+		fmt.Println("BPF_JMP | BPF_X | BPF_JSLT")
 	case constants.BPF_JMP | constants.BPF_X | constants.BPF_JSLE:
-		fmt.Println("constants.BPF_JMP | constants.BPF_X | constants.BPF_JSLE")
+		fmt.Println("BPF_JMP | BPF_X | BPF_JSLE")
 	}
 }
 
@@ -438,88 +412,62 @@ func handle32bitJumpInstructions(instruction types.Instruction) {
 	switch instruction.Opcode {
 	// 32 bit immediate as source operand
 	case constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JA:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JA")
-
+		fmt.Println("BPF_JMP32 | BPF_K | BPF_JA")
 	case constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JEQ:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JEQ")
-
+		fmt.Println("BPF_JMP32 | BPF_K | BPF_JEQ")
 	case constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JGT:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JGT")
-
+		fmt.Println("BPF_JMP32 | BPF_K | BPF_JGT")
 	case constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JGE:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JGE")
-
+		fmt.Println("BPF_JMP32 | BPF_K | BPF_JGE")
 	case constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JSET:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JSET")
-
+		fmt.Println("BPF_JMP32 | BPF_K | BPF_JSET")
 	case constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JNE:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JNE")
-
+		fmt.Println("BPF_JMP32 | BPF_K | BPF_JNE")
 	case constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JSGT:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JSGT")
-
+		fmt.Println("BPF_JMP32 | BPF_K | BPF_JSGT")
 	case constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JSGE:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JSGE")
-
+		fmt.Println("BPF_JMP32 | BPF_K | BPF_JSGE")
 	case constants.BPF_JMP32 | constants.BPF_K | constants.BPF_CALL:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_K | constants.BPF_CALL")
-
+		fmt.Println("BPF_JMP32 | BPF_K | BPF_CALL")
 	case constants.BPF_JMP32 | constants.BPF_K | constants.BPF_EXIT:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_K | constants.BPF_EXIT")
-
+		fmt.Println("BPF_JMP32 | BPF_K | BPF_EXIT")
 	case constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JLT:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JLT")
-
+		fmt.Println("BPF_JMP32 | BPF_K | BPF_JLT")
 	case constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JLE:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JLE")
-
+		fmt.Println("BPF_JMP32 | BPF_K | BPF_JLE")
 	case constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JSLT:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JSLT")
-
+		fmt.Println("BPF_JMP32 | BPF_K | BPF_JSLT")
 	case constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JSLE:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_K | constants.BPF_JSLE")
+		fmt.Println("BPF_JMP32 | BPF_K | BPF_JSLE")
 
 	// register as source operand
 	case constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JA:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JA")
-
+		fmt.Println("BPF_JMP32 | BPF_X | BPF_JA")
 	case constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JEQ:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JEQ")
-
+		fmt.Println("BPF_JMP32 | BPF_X | BPF_JEQ")
 	case constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JGT:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JGT")
-
+		fmt.Println("BPF_JMP32 | BPF_X | BPF_JGT")
 	case constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JGE:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JGE")
-
+		fmt.Println("BPF_JMP32 | BPF_X | BPF_JGE")
 	case constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JSET:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JSET")
-
+		fmt.Println("BPF_JMP32 | BPF_X | BPF_JSET")
 	case constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JNE:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JNE")
-
+		fmt.Println("BPF_JMP32 | BPF_X | BPF_JNE")
 	case constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JSGT:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JSGT")
-
+		fmt.Println("BPF_JMP32 | BPF_X | BPF_JSGT")
 	case constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JSGE:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JSGE")
-
+		fmt.Println("BPF_JMP32 | BPF_X | BPF_JSGE")
 	case constants.BPF_JMP32 | constants.BPF_X | constants.BPF_CALL:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_X | constants.BPF_CALL")
-
+		fmt.Println("BPF_JMP32 | BPF_X | BPF_CALL")
 	case constants.BPF_JMP32 | constants.BPF_X | constants.BPF_EXIT:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_X | constants.BPF_EXIT")
-
+		fmt.Println("BPF_JMP32 | BPF_X | BPF_EXIT")
 	case constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JLT:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JLT")
-
+		fmt.Println("BPF_JMP32 | BPF_X | BPF_JLT")
 	case constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JLE:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JLE")
-
+		fmt.Println("BPF_JMP32 | BPF_X | BPF_JLE")
 	case constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JSLT:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JSLT")
-
+		fmt.Println("BPF_JMP32 | BPF_X | BPF_JSLT")
 	case constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JSLE:
-		fmt.Println("constants.BPF_JMP32 | constants.BPF_X | constants.BPF_JSLE")
+		fmt.Println("BPF_JMP32 | BPF_X | BPF_JSLE")
 	}
 }

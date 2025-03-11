@@ -13,17 +13,17 @@ type InputArgs struct {
 func SetupCli() (InputArgs, error) {
 	var inputArgs InputArgs
 
-	flag.StringVar(&inputArgs.Filename, "filename", "", "The filename of the BPF object file")
-	flag.StringVar(&inputArgs.Filename, "f", "", "The filename of the BPF object file")
-	flag.StringVar(&inputArgs.SectionName, "section-name", "", "The name of the section to extract")
-	flag.StringVar(&inputArgs.SectionName, "s", "", "The name of the section to extract")
+	flag.StringVar(&inputArgs.Filename, "file", "", "The path to the BPF object file")
+	flag.StringVar(&inputArgs.Filename, "f", "", "The path to the BPF object file")
+	flag.StringVar(&inputArgs.SectionName, "section", "", "The section to extract")
+	flag.StringVar(&inputArgs.SectionName, "s", "", "The section to extract")
 
 	// provide custom usage message
 	flag.Usage = func() {
-		fmt.Println("Usage: eBPF-Interpreter [-f <path> | --filename <path>] [-s <section> | --section-name <section>]")
+		fmt.Println("Usage: eBPF-Interpreter [-f <path> | --file <path>] [-s <section> | --section <section>]")
 		fmt.Println("Flags:")
-		fmt.Println("  -f, --filename string       The filename of the BPF object file")
-		fmt.Println("  -s, --section-name string   The name of the section to extract")
+		fmt.Println("  -f, --filename string       The path to the BPF object file")
+		fmt.Println("  -s, --section-name string   The section to extract")
 		fmt.Println("  -h, --help                  Show help information")
 	}
 
