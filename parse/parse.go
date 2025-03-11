@@ -1,6 +1,7 @@
-package main
+package parse
 
 import (
+	"eBPF-Interpreter/types"
 	"encoding/binary"
 	"fmt"
 )
@@ -22,7 +23,14 @@ func getSourceRegister(registerByteField byte) uint8 {
 	return registerByteField >> 4
 }
 
-// ParseInstruction decodes a raw eBPF instruction into an Instruction struct
+// GetInstructionClass extracts the instruction class
+// The three least significant bits of the opcode represent the instruction class
+// e.g. opcode = 0xbc = 0b10111100 -> 0b00000100 = 0x4 -> instruction class 4
+func GetInstructionClass(opcode byte) uint8 {
+	return opcode & 0x7
+}
+
+// CreateInstructionFromRawInstruction decodes a raw eBPF instruction into an Instruction struct
 // The raw instruction is expected to be 8 bytes long
 // The first byte is the opcode
 // The second byte is the register byte field
@@ -32,8 +40,8 @@ func getSourceRegister(registerByteField byte) uint8 {
 // Possible errors:
 //   - length of instruction is not 8 bytes
 //   - error when decoding offset and immediate fields
-func ParseInstruction(rawInstruction []byte) (Instruction, error) {
-	var instruction Instruction
+func CreateInstructionFromRawInstruction(rawInstruction []byte) (types.Instruction, error) {
+	var instruction types.Instruction
 	lengthOfInstruction := len(rawInstruction)
 
 	if lengthOfInstruction != InstructionLength {

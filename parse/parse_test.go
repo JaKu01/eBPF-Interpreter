@@ -1,6 +1,9 @@
-package main
+package parse
 
-import "testing"
+import (
+	"eBPF-Interpreter/types"
+	"testing"
+)
 
 func TestDetDestinationRegister(t *testing.T) {
 	registerByteField := byte(0x26)
@@ -21,11 +24,11 @@ func TestGetSourceRegister(t *testing.T) {
 func TestParseInstruction(t *testing.T) {
 	//b7 01 00 00 b8 0b 00 00
 	rawInstruction := []byte{0xb7, 0x21, 0x34, 0x58, 0xb8, 0x2b, 0x78, 0xa7}
-	result, err := ParseInstruction(rawInstruction)
+	result, err := CreateInstructionFromRawInstruction(rawInstruction)
 	if err != nil {
 		t.Errorf("Expected nil, got %v", err)
 	}
-	expected := Instruction{
+	expected := types.Instruction{
 		Immediate:           0xa7782bb8,
 		Offset:              0x5834,
 		SourceRegister:      0x2,
