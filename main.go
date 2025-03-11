@@ -2,6 +2,9 @@ package main
 
 import (
 	"eBPF-Interpreter/cli"
+	"eBPF-Interpreter/execution"
+	"eBPF-Interpreter/parse"
+	"eBPF-Interpreter/types"
 	"flag"
 	"fmt"
 	"log"
@@ -20,13 +23,14 @@ func main() {
 		return
 	}
 
-	var instructions []Instruction
-	for i := 0; i < len(sectionContent); i += InstructionLength {
-		result, err := ParseInstruction(sectionContent[i : i+InstructionLength])
+	var instructions []types.Instruction
+	for i := 0; i < len(sectionContent); i += parse.InstructionLength {
+		result, err := parse.CreateInstructionFromRawInstruction(sectionContent[i : i+parse.InstructionLength])
 		if err != nil {
 			log.Fatalf("Could not decode instruction: %v", err)
 		}
 		instructions = append(instructions, result)
 	}
-	fmt.Println(instructions)
+
+	execution.ExecuteProgram(instructions)
 }
