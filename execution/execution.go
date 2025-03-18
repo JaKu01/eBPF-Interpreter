@@ -285,62 +285,101 @@ func handle64bitArithmeticOperations(instruction types.Instruction) {
 	// 32 immediate as source operand
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_ADD:
 		fmt.Println("BPF_ALU64 | BPF_K | BPF_ADD")
+		applicationState.Registers[instruction.DestinationRegister] += uint64(instruction.Immediate)
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_SUB:
 		fmt.Println("BPF_ALU64 | BPF_K | BPF_SUB")
+		applicationState.Registers[instruction.DestinationRegister] -= uint64(instruction.Immediate)
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_MUL:
 		fmt.Println("BPF_ALU64 | BPF_K | BPF_MUL")
+		applicationState.Registers[instruction.DestinationRegister] *= uint64(instruction.Immediate)
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_DIV:
 		fmt.Println("BPF_ALU64 | BPF_K | BPF_DIV")
+		applicationState.Registers[instruction.DestinationRegister] /= uint64(instruction.Immediate)
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_OR:
 		fmt.Println("BPF_ALU64 | BPF_K | BPF_OR")
+		applicationState.Registers[instruction.DestinationRegister] |= uint64(instruction.Immediate)
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_AND:
 		fmt.Println("BPF_ALU64 | BPF_K | BPF_AND")
+		applicationState.Registers[instruction.DestinationRegister] &= uint64(instruction.Immediate)
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_LSH:
 		fmt.Println("BPF_ALU64 | BPF_K | BPF_LSH")
+		applicationState.Registers[instruction.DestinationRegister] <<= uint64(instruction.Immediate)
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_RSH:
 		fmt.Println("BPF_ALU64 | BPF_K | BPF_RSH")
+		applicationState.Registers[instruction.DestinationRegister] >>= uint64(instruction.Immediate)
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_NEG:
 		fmt.Println("BPF_ALU64 | BPF_K | BPF_NEG")
+		applicationState.Registers[instruction.DestinationRegister] = uint64(^instruction.Immediate)
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_MOD:
 		fmt.Println("BPF_ALU64 | BPF_K | BPF_MOD")
+		applicationState.Registers[instruction.DestinationRegister] %= uint64(instruction.Immediate)
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_XOR:
 		fmt.Println("BPF_ALU64 | BPF_K | BPF_XOR")
+		applicationState.Registers[instruction.DestinationRegister] ^= uint64(instruction.Immediate)
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_MOV:
 		fmt.Println("BPF_ALU64 | BPF_K | BPF_MOV")
+		applicationState.Registers[instruction.DestinationRegister] = uint64(instruction.Immediate)
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_ARSH:
 		fmt.Println("BPF_ALU64 | BPF_K | BPF_ARSH")
+		signedValueFromDestinationRegister := int64(applicationState.Registers[instruction.DestinationRegister])
+		shiftedValue := signedValueFromDestinationRegister >> uint64(instruction.Immediate)
+		applicationState.Registers[instruction.DestinationRegister] = uint64(shiftedValue)
 	case constants.BPF_ALU64 | constants.BPF_K | constants.BPF_END:
 		fmt.Println("BPF_ALU64 | BPF_K | BPF_END")
+		// host byte order to little endian (host byte order probably already in little endian)
+		//tempConvertedValue := make([]byte, 8)
+		//binary.NativeEndian.PutUint64(tempConvertedValue, applicationState.Registers[instruction.DestinationRegister])
+		//applicationState.Registers[instruction.DestinationRegister] = binary.LittleEndian.Uint64(tempConvertedValue)
+		panic("Not implemented yet")
 
 	// register as source operand
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_ADD:
 		fmt.Println("BPF_ALU64 | BPF_X | BPF_ADD")
+		applicationState.Registers[instruction.DestinationRegister] += applicationState.Registers[instruction.SourceRegister]
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_SUB:
 		fmt.Println("BPF_ALU64 | BPF_X | BPF_SUB")
+		applicationState.Registers[instruction.DestinationRegister] -= applicationState.Registers[instruction.SourceRegister]
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_MUL:
 		fmt.Println("BPF_ALU64 | BPF_X | BPF_MUL")
+		applicationState.Registers[instruction.DestinationRegister] *= applicationState.Registers[instruction.SourceRegister]
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_DIV:
 		fmt.Println("BPF_ALU64 | BPF_X | BPF_DIV")
+		applicationState.Registers[instruction.DestinationRegister] /= applicationState.Registers[instruction.SourceRegister]
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_OR:
 		fmt.Println("BPF_ALU64 | BPF_X | BPF_OR")
+		applicationState.Registers[instruction.DestinationRegister] |= applicationState.Registers[instruction.SourceRegister]
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_AND:
 		fmt.Println("BPF_ALU64 | BPF_X | BPF_AND")
+		applicationState.Registers[instruction.DestinationRegister] &= applicationState.Registers[instruction.SourceRegister]
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_LSH:
 		fmt.Println("BPF_ALU64 | BPF_X | BPF_LSH")
+		applicationState.Registers[instruction.DestinationRegister] <<= applicationState.Registers[instruction.SourceRegister]
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_RSH:
 		fmt.Println("BPF_ALU64 | BPF_X | BPF_RSH")
+		applicationState.Registers[instruction.DestinationRegister] >>= applicationState.Registers[instruction.SourceRegister]
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_NEG:
 		fmt.Println("BPF_ALU64 | BPF_X | BPF_NEG")
+		applicationState.Registers[instruction.DestinationRegister] = ^applicationState.Registers[instruction.SourceRegister]
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_MOD:
 		fmt.Println("BPF_ALU64 | BPF_X | BPF_MOD")
+		applicationState.Registers[instruction.DestinationRegister] %= applicationState.Registers[instruction.SourceRegister]
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_XOR:
 		fmt.Println("BPF_ALU64 | BPF_X | BPF_XOR")
+		applicationState.Registers[instruction.DestinationRegister] ^= applicationState.Registers[instruction.SourceRegister]
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_MOV:
 		fmt.Println("BPF_ALU64 | BPF_X | BPF_MOV")
+		applicationState.Registers[instruction.DestinationRegister] = applicationState.Registers[instruction.SourceRegister]
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_ARSH:
 		fmt.Println("BPF_ALU64 | BPF_X | BPF_ARSH")
+		signedValueFromDestinationRegister := int64(applicationState.Registers[instruction.DestinationRegister])
+		shiftedValue := signedValueFromDestinationRegister >> applicationState.Registers[instruction.SourceRegister]
+		applicationState.Registers[instruction.DestinationRegister] = uint64(shiftedValue)
 	case constants.BPF_ALU64 | constants.BPF_X | constants.BPF_END:
 		fmt.Println("BPF_ALU64 | BPF_X | BPF_END")
+		//tempConvertedValue := make([]byte, 8)
+		//binary.NativeEndian.PutUint64(tempConvertedValue, applicationState.Registers[instruction.DestinationRegister])
+		//applicationState.Registers[instruction.DestinationRegister] = binary.BigEndian.Uint64(tempConvertedValue)
+		panic("Not implemented yet")
 	}
 }
 
