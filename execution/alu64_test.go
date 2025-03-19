@@ -326,3 +326,141 @@ func TestArithmeticShiftLeadingZeroRightImmediate(t *testing.T) {
 		t.Errorf("Expected %b, got %b", expected, applicationState.Registers[1])
 	}
 }
+
+func TestToLittleEndian16BitWidth(t *testing.T) {
+	applicationState = types.ApplicationState{}
+	applicationState.Registers[1] = 0x1234567890abcdef
+
+	const opcode uint8 = 0x07 | 0x0 | 0xd0
+
+	instruction := types.Instruction{
+		Opcode:              opcode,
+		DestinationRegister: 0x1,
+		Immediate:           0x10, // 16 bit width
+		SourceRegister:      0x0,
+		Offset:              0x0,
+	}
+
+	ExecuteProgram([]types.Instruction{instruction})
+
+	const expected uint64 = 0x000000000000cdef // Assuming host byte order is little endian
+	result := applicationState.Registers[1]
+	if result != expected {
+		t.Errorf("Expected %#x, got %#x", expected, applicationState.Registers[1])
+	}
+}
+
+func TestToLittleEndian32BitWidth(t *testing.T) {
+	applicationState = types.ApplicationState{}
+	applicationState.Registers[1] = 0x1234567890abcdef
+
+	const opcode uint8 = 0x07 | 0x0 | 0xd0
+
+	instruction := types.Instruction{
+		Opcode:              opcode,
+		DestinationRegister: 0x1,
+		Immediate:           0x20, // 32 bit width
+		SourceRegister:      0x0,
+		Offset:              0x0,
+	}
+
+	ExecuteProgram([]types.Instruction{instruction})
+
+	const expected uint64 = 0x0000000090abcdef // Assuming host byte order is little endian
+	result := applicationState.Registers[1]
+	if result != expected {
+		t.Errorf("Expected %#x, got %#x", expected, applicationState.Registers[1])
+	}
+}
+
+func TestToLittleEndian64BitWidth(t *testing.T) {
+	applicationState = types.ApplicationState{}
+	applicationState.Registers[1] = 0x1234567890abcdef
+
+	const opcode uint8 = 0x07 | 0x0 | 0xd0
+
+	instruction := types.Instruction{
+		Opcode:              opcode,
+		DestinationRegister: 0x1,
+		Immediate:           0x40, // 64 bit width
+		SourceRegister:      0x0,
+		Offset:              0x0,
+	}
+
+	ExecuteProgram([]types.Instruction{instruction})
+
+	const expected uint64 = 0x1234567890abcdef // Assuming host byte order is little endian
+	result := applicationState.Registers[1]
+	if result != expected {
+		t.Errorf("Expected %#x, got %#x", expected, applicationState.Registers[1])
+	}
+}
+
+func TestToBigEndian16BitWidth(t *testing.T) {
+	applicationState = types.ApplicationState{}
+	applicationState.Registers[1] = 0x1234567890abcdef
+
+	const opcode uint8 = 0x07 | 0x08 | 0xd0
+
+	instruction := types.Instruction{
+		Opcode:              opcode,
+		DestinationRegister: 0x1,
+		Immediate:           0x10, // 16 bit width
+		SourceRegister:      0x0,
+		Offset:              0x0,
+	}
+
+	ExecuteProgram([]types.Instruction{instruction})
+
+	const expected uint64 = 0xefcd000000000000 // Assuming host byte order is little endian
+	result := applicationState.Registers[1]
+	if result != expected {
+		t.Errorf("Expected %#x, got %#x", expected, applicationState.Registers[1])
+	}
+}
+
+func TestToBigEndian32BitWidth(t *testing.T) {
+	applicationState = types.ApplicationState{}
+	applicationState.Registers[1] = 0x1234567890abcdef
+
+	const opcode uint8 = 0x07 | 0x08 | 0xd0
+
+	instruction := types.Instruction{
+		Opcode:              opcode,
+		DestinationRegister: 0x1,
+		Immediate:           0x20, // 32 bit width
+		SourceRegister:      0x0,
+		Offset:              0x0,
+	}
+
+	ExecuteProgram([]types.Instruction{instruction})
+
+	const expected uint64 = 0xefcdab9000000000 // Assuming host byte order is little endian
+	result := applicationState.Registers[1]
+	if result != expected {
+		t.Errorf("Expected %#x, got %#x", expected, applicationState.Registers[1])
+	}
+}
+
+func TestToBigEndian64BitWidth(t *testing.T) {
+	applicationState = types.ApplicationState{}
+	applicationState.Registers[1] = 0x1234567890abcdef
+
+	const opcode uint8 = 0x07 | 0x08 | 0xd0
+
+	instruction := types.Instruction{
+		Opcode:              opcode,
+		DestinationRegister: 0x1,
+		Immediate:           0x40, // 64 bit width
+		SourceRegister:      0x0,
+		Offset:              0x0,
+	}
+
+	ExecuteProgram([]types.Instruction{instruction})
+
+	const expected uint64 = 0xefcdab9078563412 // Assuming host byte order is little endian
+	result := applicationState.Registers[1]
+	if result != expected {
+		t.Errorf("Expected %#x, got %#x", expected, applicationState.Registers[1])
+	}
+}

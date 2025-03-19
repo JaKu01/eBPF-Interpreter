@@ -53,12 +53,12 @@ func CreateInstructionFromRawInstruction(rawInstruction []byte) (types.Instructi
 	instruction.DestinationRegister = getDestinationRegister(rawInstruction[1])
 	instruction.SourceRegister = getSourceRegister(rawInstruction[1])
 
-	_, err := binary.Decode(rawInstruction[2:4], binary.NativeEndian, &instruction.Offset)
+	_, err := binary.Decode(rawInstruction[2:4], binary.LittleEndian, &instruction.Offset)
 	if err != nil {
 		return instruction, fmt.Errorf("error when decoding offset field: %v", err)
 	}
 
-	_, err = binary.Decode(rawInstruction[4:], binary.NativeEndian, &instruction.Immediate)
+	_, err = binary.Decode(rawInstruction[4:], binary.LittleEndian, &instruction.Immediate)
 	if err != nil {
 		return instruction, fmt.Errorf("error when decoding immediate field: %v", err)
 	}
