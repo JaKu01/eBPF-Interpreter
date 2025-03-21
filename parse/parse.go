@@ -58,7 +58,7 @@ func CreateInstructionFromRawInstruction(rawInstruction []byte) (types.Instructi
 		return instruction, fmt.Errorf("error when decoding offset field: %v", err)
 	}
 
-	_, err = binary.Decode(rawInstruction[4:], binary.NativeEndian, &instruction.Immediate)
+	_, err = binary.Decode(rawInstruction[4:], binary.LittleEndian, &instruction.Immediate)
 	if err != nil {
 		return instruction, fmt.Errorf("error when decoding immediate field: %v", err)
 	}

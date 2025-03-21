@@ -27,7 +27,7 @@ Opcode is interpreted as follows:
 */
 // Size modifier
 const (
-	BPF_W  = 0x0  // word (4 bytes)
+	BPF_W  = 0x00 // word (4 bytes)
 	BPF_H  = 0x08 // half word (2 bytes)
 	BPF_B  = 0x10 // byte
 	BPF_DW = 0x18 // double word (8 bytes)
@@ -35,7 +35,7 @@ const (
 
 // Mode modifier
 const (
-	BPF_IMM    = 0x0  // used for 64-bit mov
+	BPF_IMM    = 0x00 // used for 64-bit mov
 	BPF_ABS    = 0x20 // legacy BPF packet access
 	BPF_IND    = 0x40 // legacy BPF packet access
 	BPF_MEM    = 0x60 // all normal load and store operations
@@ -54,8 +54,10 @@ const (
 
 // Source Operand
 const (
-	BPF_K = 0x00 // use 32-bit immediate as source operand
-	BPF_X = 0x08 // use ‘src_reg’ register as source operand
+	BPF_K     = 0x00 // use 32-bit immediate as source operand
+	BPF_X     = 0x08 // use ‘src_reg’ register as source operand
+	BPF_TO_LE = 0x00 // convert to little-endian
+	BPF_TO_BE = 0x08 // convert to big-endian
 )
 
 // Operation code
